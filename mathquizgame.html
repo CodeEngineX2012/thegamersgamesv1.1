@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Logo- game web.jpg" type="image/x-icon">
+    <title>Math Quiz Game</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+}
+
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#questionContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#question {
+    font-size: 1.5em;
+}
+
+#answer {
+    padding: 10px;
+    font-size: 1em;
+    width: 100px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#feedback {
+    margin-top: 10px;
+    font-size: 1em;
+    color: red;
+}
+</style>
+</head>
+<body>
+    <div id="gameContainer">
+        <h1>Math Quiz Game</h1>
+        <div id="questionContainer">
+            <p id="question"></p>
+            <input type="text" id="answer" placeholder="Your answer">
+            <button onclick="checkAnswer()">Submit</button>
+            <p id="feedback"></p>
+        </div>
+    </div>
+    <script>
+        const questions = [
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 x 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "788 - 80", answer: "708" },
+    { question: "The ratio of boys to girls in a school is 4:5. If there are 125 girls, how many boys are there?", answer: "100" },
+    { question: "", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "16 / 4", answer: "4" },
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 * 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "16 / 4", answer: "4" },
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 * 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "16 / 4", answer: "4" },
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 * 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "16 / 4", answer: "4" },
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 * 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "16 / 4", answer: "4" },
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 * 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "16 / 4", answer: "4" },
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 * 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+    { question: "16 / 4", answer: "4" },
+    { question: "5 + 3", answer: "8" },
+    { question: "12 - 4", answer: "8" },
+    { question: "3 * 7", answer: "21" },
+    { question: "16 / 4", answer: "4" },
+];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+    const questionElement = document.getElementById('question');
+    const answerElement = document.getElementById('answer');
+    const feedbackElement = document.getElementById('feedback');
+
+    questionElement.textContent = questions[currentQuestionIndex].question;
+    answerElement.value = '';
+    feedbackElement.textContent = '';
+}
+
+function checkAnswer() {
+    const answerElement = document.getElementById('answer');
+    const feedbackElement = document.getElementById('feedback');
+
+    if (answerElement.value === questions[currentQuestionIndex].answer) {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            loadQuestion();
+        } else {
+            feedbackElement.textContent = "Congratulations! You've completed the quiz.";
+            feedbackElement.style.color = 'green';
+        }
+    } else {
+        feedbackElement.textContent = "Incorrect! Please try again.";
+        feedbackElement.style.color = 'red';
+    }
+}
+
+window.onload = function() {
+    loadQuestion();
+};
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Logo- game web.jpg" type="image/x-icon">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: gray;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .navbar {
+            background-color: #333;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            float: left;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar ul li a:hover {
+  padding: 30px;
+  background-color: #555;
+}
+
+        .navbar button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        .navbar button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar button:hover {
+            background-color: #555;
+            padding: 30px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 60px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            margin-top: 80px; 
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+          <li><a href="homepage.html">The Gamers Games</a></li>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="gamespage.html">All Games</a></li>
+          <li><a href="quizandpuzzlegames.html">Quiz and Puzzle Games</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="signupform.html">Sign Up Form</a></li>
+        </ul>
+        <button><a href="loginpage.html">Login/Sign Up</a></button>
+    </nav>
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <input type="file" id="avatar-upload" accept="image/*">
+        <button onclick="login()">Login</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const users = {
+            'Abdullah': 'Abdullah2012',
+            'Jalal': 'jaltech.',
+            'Guest': 'guestaccount1',
+            'User': 'user_9977418',
+            ' ': '',
+            ' ': '',
+            ' ': '',
+            '': '',
+            '': '',
+            '': ''
+        };
+
+        function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const avatarUpload = document.getElementById('avatar-upload');
+            const message = document.getElementById('message');
+
+            if (users[username] && users[username] === password) {
+                if (avatarUpload.files.length > 0) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const avatarURL = e.target.result;
+                        localStorage.setItem('username', username);
+                        localStorage.setItem('avatar', avatarURL);
+                        message.style.color = 'green';
+                        message.innerText = 'Login successful. Loading....';
+                        setTimeout(() => {
+                            window.location.href = 'homepage.html'; 
+                        }, 500);
+                    };
+                    reader.readAsDataURL(avatarUpload.files[0]);
+                } else {
+                    localStorage.setItem('username', username);
+                    localStorage.removeItem('avatar'); 
+                    message.style.color = 'green';
+                    message.innerText = 'Login successful. Loading....';
+                    setTimeout(() => {
+                        window.location.href = 'homepage.html'; 
+                    }, 500);
+                }
+            } else {
+                message.style.color = 'red';
+                message.innerText = 'Invalid username or password';
+            }
+        }
+    </script>
+</body>
+</html>
