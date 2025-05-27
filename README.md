@@ -2,6 +2,11 @@
 
 **The Gamers Games** is a website where you can play games online for free!
 
+## NOTE : 
+issue detected. The correct page is as follows:
+ ## https://codeenginex2012.github.io/thegamersgamesv1.1/homepage.html
+
+
 ## 🔧 Tech stack
 
 - **Frontend:** HTML, CSS  
