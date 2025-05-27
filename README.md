@@ -6,6 +6,12 @@
 - issue detected. The correct page is as follows:
 **https://codeenginex2012.github.io/thegamersgamesv1.1/homepage.html**
 
+## Free User Creditentials
+**Where you see capital letters use the same as you see**
+ - Username : Guest
+ - Password : guestaccount1
+ - Username : User
+ - Password : user_9977418
 
 ## 🔧 Tech stack
 
