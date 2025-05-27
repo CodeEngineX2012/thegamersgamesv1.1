@@ -6,11 +6,11 @@
 
 - **Frontend:** HTML, CSS  
 - **Backend:** JavaScript  
-- **Hosting:** GitHub Pages / infinity free **thegamersgamesv1.42web.io**
+- **Hosting:** GitHub Pages **https://codeenginex2012.github.io/thegamersgamesv1.1**  / infinity free **https://thegamersgamesv1.42web.io**
 
 ## 🔗 FoIIow us
 
-Stay updated and connect with us on Instagram:  
+Stay updated and connect with me on Instagram:  
 [Instagram - @codeenginex.official](https://instagram.com/codeenginex.official)
 
 ---
